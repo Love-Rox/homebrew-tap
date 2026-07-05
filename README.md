@@ -9,7 +9,9 @@
 ### インストール
 
 ```sh
-brew install --cask Love-Rox/tap/labolabo
+brew tap love-rox/tap
+brew trust love-rox/tap          # 第三者 tap の信頼（Homebrew の要件）
+brew install --cask labolabo
 ```
 
 ### 更新
@@ -18,10 +20,15 @@ brew install --cask Love-Rox/tap/labolabo
 brew upgrade --cask labolabo
 ```
 
-アプリ内でも新バージョンを通知します（設定 > 一般 でアップデート確認）。
+アプリ内でも新バージョンを通知します（設定 > 一般）。
 
 ### 注意（署名について）
 
 アドホック署名（Apple の公証なし・無料配布）のため、初回起動で macOS の
-Gatekeeper がブロックします。Cask の `caveats`（インストール時に表示）の手順で
-許可してください。
+Gatekeeper がブロックします。インストール時に表示される `caveats` の手順で許可してください:
+
+```sh
+xattr -dr com.apple.quarantine "/Applications/LaboLabo.app"
+```
+
+または Finder で右クリック →「開く」、もしくは システム設定 > プライバシーとセキュリティ >「このまま開く」。

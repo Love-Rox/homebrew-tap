@@ -7,7 +7,7 @@ cask "labolabo" do
   desc "Run parallel AI coding agents, one git worktree per session, beside live git diffs"
   homepage "https://github.com/Love-Rox/labolabo"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "LaboLabo.app"
 
