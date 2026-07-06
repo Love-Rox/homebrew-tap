@@ -1,6 +1,6 @@
 cask "labolabo" do
-  version "0.5.0"
-  sha256 "754d4322fcd812f7cfc750dbddbb92c28c7e699ce877bdbf6ca22cff07b3f2cb"
+  version "0.5.1"
+  sha256 "144355d94ab6647a11ad51f5537d0378341aa79040be94a66bf3e027a65b8b33"
 
   url "https://github.com/Love-Rox/labolabo/releases/download/v#{version}/LaboLabo-#{version}.zip"
   name "LaboLabo"
