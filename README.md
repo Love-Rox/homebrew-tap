@@ -6,6 +6,8 @@
 **1 セッション = 1 git worktree** で並列に走らせ、ライブな Git 状態とファイル差分を
 端末の真横で確認する macOS ネイティブアプリ。
 
+🌐 サイト: <https://labolabo.love-rox.cc> ・ [GitHub](https://github.com/Love-Rox/labolabo)
+
 ### インストール
 
 ```sh
