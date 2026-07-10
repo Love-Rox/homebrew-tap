@@ -1,6 +1,6 @@
 cask "harushion" do
   version "0.1.0"
-  sha256 :no_check # 初回リリース後に scripts/update-cask.sh が実ハッシュへ更新する
+  sha256 "9de6291713bd96d9552d5ee5dd5eb58b2510d5ff3b081c8d4bb1c6b1a35555fd"
 
   url "https://github.com/Love-Rox/Harushion/releases/download/v#{version}/Harushion_#{version}_universal.dmg"
   name "Harushion"
