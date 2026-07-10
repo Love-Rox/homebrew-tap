@@ -18,8 +18,9 @@ cask "harushion" do
 
   caveats <<~EOS
     Harushion は無署名で配布されています。Gatekeeper の隔離を避けるには:
-      brew install --cask --no-quarantine love-rox/tap/harushion
-    (すでにインストール済みの場合は、初回起動時に右クリック → 開く)
+      HOMEBREW_CASK_OPTS=--no-quarantine brew install --cask love-rox/tap/harushion
+    (Homebrew 6 以降は --no-quarantine を CLI フラグとして受け付けないため環境変数で指定。
+     すでにインストール済みの場合は、初回起動時に右クリック → 開く)
 
     認証に GitHub CLI を使用します: brew install gh && gh auth login
   EOS
