@@ -1,6 +1,6 @@
 cask "harushion" do
-  version "0.1.6"
-  sha256 "4dc7db157eca587533244215dce76988b5c1b521c58e4e3c630648456d22f132"
+  version "0.1.7"
+  sha256 "5c3c6c633ece8aac107c97893251bf5ee42be2a8277246027f918cd67689b0c2"
 
   url "https://github.com/Love-Rox/Harushion/releases/download/v#{version}/Harushion_#{version}_universal.dmg"
   name "Harushion"
