@@ -4,29 +4,25 @@ cask "labolabo-rs" do
 
   url "https://github.com/Love-Rox/labolabo/releases/download/rs-v#{version}/LaboLabo-rs-#{version}.zip"
   name "LaboLabo-rs"
-  desc "Cross-platform (Rust) LaboLabo: parallel AI coding agents beside live git diffs"
-  homepage "https://labolabo.love-rox.cc/"
+  desc "Renamed: install love-rox/tap/labolabo instead"
+  homepage "https://labolabo.love-rox.cc"
+
+  deprecate! date: "2026-07-17", because: :discontinued
 
   depends_on macos: :sonoma
 
   app "LaboLabo-rs.app"
+
+  caveats <<~EOS
+    LaboLabo-rs は「LaboLabo」に改名されました。今後の更新はこちらへ:
+
+      brew uninstall labolabo-rs
+      brew install love-rox/tap/labolabo
+  EOS
 
   zap trash: [
     "~/Library/Application Support/LaboLabo-rs",
     "~/Library/Caches/com.love-rox.labolabo-rs",
     "~/Library/Preferences/com.love-rox.labolabo-rs.plist",
   ]
-
-  # アドホック署名（Apple の公証なし）のため、初回起動で Gatekeeper がブロックします。
-  caveats <<~EOS
-    LaboLabo-rs はアドホック署名（notarization なし）で配布されています。
-    初回起動でブロックされたら、次のいずれかで許可してください:
-
-      xattr -dr com.apple.quarantine "#{appdir}/LaboLabo-rs.app"
-
-    または Finder で右クリック →「開く」、
-    もしくは システム設定 > プライバシーとセキュリティ >「このまま開く」。
-
-    Swift 版（cask "labolabo"）とは独立してインストールされます。
-  EOS
 end
