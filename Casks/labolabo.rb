@@ -5,11 +5,17 @@ cask "labolabo" do
   url "https://github.com/Love-Rox/labolabo/releases/download/rs-v#{version}/LaboLabo-#{version}.zip"
   name "LaboLabo"
   desc "Parallel AI coding agents beside live git diffs, one worktree per task"
-  homepage "https://labolabo.love-rox.cc"
+  homepage "https://labolabo.love-rox.cc/"
 
   depends_on macos: :sonoma
 
   app "LaboLabo.app"
+
+  zap trash: [
+    "~/Library/Application Support/LaboLabo",
+    "~/Library/Caches/com.love-rox.labolabo",
+    "~/Library/Preferences/com.love-rox.labolabo.plist",
+  ]
 
   # アドホック署名（Apple の公証なし）のため、初回起動で Gatekeeper がブロックします。
   caveats <<~EOS
@@ -21,10 +27,4 @@ cask "labolabo" do
     または Finder で右クリック →「開く」、
     もしくは システム設定 > プライバシーとセキュリティ >「このまま開く」。
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/LaboLabo",
-    "~/Library/Caches/com.love-rox.labolabo",
-    "~/Library/Preferences/com.love-rox.labolabo.plist",
-  ]
 end

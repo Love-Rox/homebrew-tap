@@ -5,7 +5,7 @@ cask "labolabo-rs" do
   url "https://github.com/Love-Rox/labolabo/releases/download/rs-v#{version}/LaboLabo-rs-#{version}.zip"
   name "LaboLabo-rs"
   desc "Renamed: install love-rox/tap/labolabo instead"
-  homepage "https://labolabo.love-rox.cc"
+  homepage "https://labolabo.love-rox.cc/"
 
   deprecate! date: "2026-07-17", because: :discontinued
 
@@ -13,16 +13,16 @@ cask "labolabo-rs" do
 
   app "LaboLabo-rs.app"
 
+  zap trash: [
+    "~/Library/Application Support/LaboLabo-rs",
+    "~/Library/Caches/com.love-rox.labolabo-rs",
+    "~/Library/Preferences/com.love-rox.labolabo-rs.plist",
+  ]
+
   caveats <<~EOS
     LaboLabo-rs は「LaboLabo」に改名されました。今後の更新はこちらへ:
 
       brew uninstall labolabo-rs
       brew install love-rox/tap/labolabo
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/LaboLabo-rs",
-    "~/Library/Caches/com.love-rox.labolabo-rs",
-    "~/Library/Preferences/com.love-rox.labolabo-rs.plist",
-  ]
 end
