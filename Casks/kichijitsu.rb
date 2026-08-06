@@ -1,7 +1,7 @@
 cask "kichijitsu" do
   version "0.1.9"
-  # version を上げたら、実 DMG の sha256 に差し替える。
-  # 取得方法: shasum -a 256 kichijitsu_#{version}_universal.dmg
+  # version と sha256 は kichijitsu 側のリリースワークフロー (.github/workflows/release.yml の
+  # Update Homebrew cask) が自動更新する。手で書き換える必要はない (2026-08-07 に自動化)。
   sha256 "5b2d283049ddbc3cf54230233dce2a5e67fa1e964d90f8de16372351dfac6637"
 
   url "https://github.com/Love-Rox/kichijitsu/releases/download/v#{version}/kichijitsu_#{version}_universal.dmg"
