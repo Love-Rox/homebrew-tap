@@ -4,7 +4,7 @@ cask "kichijitsu" do
   # Update Homebrew cask) が自動更新する。手で書き換える必要はない (2026-08-07 に自動化)。
   sha256 "21f4965ab1d95441e1d4384d4b789b28114a162117278834cd1168e67cf16358"
 
-  url "https://github.com/Love-Rox/kichijitsu/releases/download/v#{version}/kichijitsu_#{version}_universal.dmg"
+  url "https://github.com/Love-Rox/kichijitsu/releases/download/v#{version}/kichijitsu_#{version}_aarch64.dmg"
   name "kichijitsu"
   desc "Local-first calendar client with GitHub integration (Google Calendar counterpart)"
   homepage "https://github.com/Love-Rox/kichijitsu"
@@ -14,18 +14,20 @@ cask "kichijitsu" do
     strategy :github_latest
   end
 
+  # アプリ自身が起動中に更新を確認して自動で差し替える。宣言しておくと `brew upgrade` は
+  # 重ねて更新しない(更新したいときは `brew upgrade --greedy`)。
+  auto_updates true
+
+  # Apple Silicon 専用(容量を減らすため universal をやめた)。
+  depends_on arch: :arm64
   depends_on macos: :ventura
 
   app "kichijitsu.app"
 
   caveats <<~EOS
-    kichijitsu は無署名で配布されています。Gatekeeper が初回起動をブロックするため、
-    インストール後に隔離属性を外してください:
-      xattr -rd com.apple.quarantine #{appdir}/kichijitsu.app
-    (外さない場合は、初回起動がブロックされたら
-     システム設定 → プライバシーとセキュリティ → 「このまま開く」)
-    ※ Homebrew 6 はダウンロードをサンドボックスで実行するため、
-      従来の --no-quarantine 指定では隔離を回避できません。
+    kichijitsu は Developer ID で署名し、Apple の公証を受けています。
+    起動中に自動で更新を確認し、新しい版を見つけると、取得してから通知します。
+    トレイのメニュー「アップデートを確認」で再起動すると反映されます。
 
     認証に GitHub CLI を使用します: brew install gh && gh auth login
   EOS
