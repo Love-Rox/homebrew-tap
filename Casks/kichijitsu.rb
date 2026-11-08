@@ -1,8 +1,8 @@
 cask "kichijitsu" do
-  version "0.1.20"
+  version "0.1.21"
   # version と sha256 は kichijitsu 側のリリースワークフロー (.github/workflows/release.yml の
   # Update Homebrew cask) が自動更新する。手で書き換える必要はない (2026-08-07 に自動化)。
-  sha256 "6cd48287ed45d8f6be5e3d90feb3954685e155b7bb9bcc37d73c83932b02a213"
+  sha256 "7c2206b5a4ca6af08e708aa8dc63e4e1d3726c8b00d15ebef10c8b688b0aa1f3"
 
   url "https://github.com/Love-Rox/kichijitsu/releases/download/v#{version}/kichijitsu_#{version}_aarch64.dmg"
   name "kichijitsu"
